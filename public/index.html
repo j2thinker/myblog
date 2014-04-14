@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.border {
+    border:1px solid #cdcdcd;
+}
+</style>
+</head>
+<body>
+<form >
+    <input type="text" name="idate"  data-validation="birthdate" data-validation-help="yyyy-mm-dd" class="border"/>
+    <input type="submit" value="Sub" />
+</form>
+<script src="./assets/js/jquery.min.js" ></script>
+<script src="./assets/js/form_validator/jquery.form-validator.min.js" ></script>
+<script type="text/javascript">
+$(function (){
+    $.validate({modules:'date'});
+});
+</script>
+</body>
+</html>

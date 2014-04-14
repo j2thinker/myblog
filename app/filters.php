@@ -78,3 +78,8 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+//simple session check and will be update in later by useing Cooke
+Route::filter('islogin' , function (){
+  if(Auth::fails()) return Redirect::to('user/login');  
+});
