@@ -2,7 +2,7 @@
 class FunnyController extends BaseController
 {
     public function getList(){
-        $funny_list = Funny::leftJoin('users' , 'funnys.uid' ,'=' , 'users.id')
+        $funny_list = Funny::leftJoin('users' , 'funnys.uid' ,'=' , 'users.id')->select('funnys.*','users.name')
                                     ->orderBy('funnys.created_at' , 'desc')->paginate(10);
         $this->layout->content = View::make('funny.list', compact('funny_list'));
     }
@@ -43,6 +43,9 @@ class FunnyController extends BaseController
         if(is_null($detail)){
             return Redirect::to('funny/list')->withErrors(array('err_param'=>'参数错误'));
         }
-        $this->layout->content = View::make('funny.detail',compact('detail'));
+        $author    = '';
+        $author_id = $detail->uid ;
+        if($author_id) $author = User::find($author_id);
+        $this->layout->content = View::make('funny.detail',compact('detail' , 'author'));
     }
 }

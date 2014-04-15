@@ -19,7 +19,8 @@ Route::controllers(array(
     'price' => 'PriceController',
     'guestbook' => 'GuestbookController',
     'funny' => 'FunnyController',
-    'blog'  => 'BlogController'
+    'blog'  => 'BlogController',
+    'upload'=> 'UploadController'
 ));
 View::composer('layouts.content' , function ($view){
     $action_list        = Website::all();

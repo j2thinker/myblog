@@ -119,14 +119,14 @@ td {
 }
 
 /* form elements */
-form {
+#main form {
 	margin: 10px 25px 10px 25px;
 	padding: 10px 25px 25px 25px;
     background: #F3F4F5;
     border: 1px solid #E2E4E7;
 /*	width: 477px;*/
 }
-form p {
+#main form p {
 	border-bottom: 1px solid #E6E6E6;
 	padding: 5px 0 ;	
     margin: 0;	

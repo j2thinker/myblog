@@ -3,7 +3,7 @@
 <?php foreach($funny_list as $funny):?>
 <li>
     <div class="post-title">
-        <?php echo $funny->title ;?>
+        <a href="<?php echo '/funny/detail?fid='.$funny->id ;?>"><?php echo $funny->title ;?></a>
         </div>
         <div class="post-detail">
         post on <?php echo $funny->created_at. " by " . $funny->name  ;?>
@@ -58,8 +58,11 @@ $(function (){
 });
 KindEditor.ready(function(K) {
                 editor = K.create('textarea[name="funny"]', {
+                        uploadJson: '/upload/image',
+                        allowFileManager:true,
                         resizeType : 0,
                         allowPreviewEmoticons : true,
+                        allowImageRemote:false ,
                         items : [
                         'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
                         'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
