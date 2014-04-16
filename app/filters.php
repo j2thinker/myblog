@@ -81,5 +81,14 @@ Route::filter('csrf', function()
 
 //simple session check and will be update in later by useing Cooke
 Route::filter('islogin' , function (){
-  if(Auth::fails()) return Redirect::to('user/login');  
+  if(!Auth::check()) return Redirect::to('user/login');  
+});
+
+Route::filter('needlogin' , function (){
+    
+});
+
+//editor upload img filter login first
+Route::filter('ajaxislogin' , function (){
+    if(!Auth::check()) return Response::json(array('error'=>1 ,'message'=>'请登录'));
 });
