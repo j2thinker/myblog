@@ -3,7 +3,7 @@
     <?php foreach($message_list as $message):?>
     <li>
         <div class="post-title">
-            <?php echo $message->message ;?>
+            <?php echo str_replace("\n" ,"<br />" , htmlspecialchars($message->message)) ;?>
         </div>
         <div class="post-detail">
             post on <?php echo $message->created_at. " by " . $message->name  ;?>

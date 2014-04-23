@@ -81,7 +81,9 @@ Route::filter('csrf', function()
 
 //simple session check and will be update in later by useing Cooke
 Route::filter('islogin' , function (){
-  if(!Auth::check()) return Redirect::to('user/login');  
+    if(Request::path()!= 'user/login'){
+        if(!Auth::check()) return Redirect::to('user/login');  
+    }
 });
 
 Route::filter('needlogin' , function (){
